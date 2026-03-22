@@ -47,7 +47,14 @@ app.MapPost("/tasks", (CreateTaskRequest request, TaskRepository repository) =>
         return Results.BadRequest(new { message = "Title wajib diisi." });
     }
 
-    var task = repository.Add(request.Title, request.Description ?? string.Empty);
+    var priority = NormalizePriority(request.Priority);
+
+    if (priority is null)
+    {
+        return Results.BadRequest(new { message = "Priority harus Low, Medium, atau High." });
+    }
+
+    var task = repository.Add(request.Title, request.Description ?? string.Empty, priority);
 
     return Results.Created($"/tasks/{task.Id}", task);
 });
@@ -59,10 +66,18 @@ app.MapPut("/tasks/{id:guid}", (Guid id, UpdateTaskRequest request, TaskReposito
         return Results.BadRequest(new { message = "Title wajib diisi." });
     }
 
+    var priority = NormalizePriority(request.Priority);
+
+    if (priority is null)
+    {
+        return Results.BadRequest(new { message = "Priority harus Low, Medium, atau High." });
+    }
+
     var updatedTask = repository.Update(
         id,
         request.Title,
         request.Description ?? string.Empty,
+        priority,
         request.IsDone);
 
     return updatedTask is null
@@ -83,5 +98,16 @@ app.MapDelete("/tasks/{id:guid}", (Guid id, TaskRepository repository) =>
     repository.Delete(id)
         ? Results.NoContent()
         : Results.NotFound(new { message = "Task tidak ditemukan." }));
+
+static string? NormalizePriority(string? priority)
+{
+    return priority?.Trim().ToLowerInvariant() switch
+    {
+        "low" => "Low",
+        "medium" => "Medium",
+        "high" => "High",
+        _ => null
+    };
+}
 
 app.Run();

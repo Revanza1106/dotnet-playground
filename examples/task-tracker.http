@@ -16,7 +16,8 @@ Content-Type: application/json
 
 {
   "title": "Bangun endpoint pertama",
-  "description": "Belajar POST request di ASP.NET Core Minimal API"
+  "description": "Belajar POST request di ASP.NET Core Minimal API",
+  "priority": "High"
 }
 
 ### Update task
@@ -26,6 +27,7 @@ Content-Type: application/json
 {
   "title": "Pelajari route di ASP.NET Core",
   "description": "Update data task dan pahami response 200",
+  "priority": "Medium",
   "isDone": true
 }
 
