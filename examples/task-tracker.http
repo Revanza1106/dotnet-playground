@@ -1,0 +1,41 @@
+### Root
+GET http://localhost:5050/
+
+### Health
+GET http://localhost:5050/health
+
+### Get all tasks
+GET http://localhost:5050/tasks
+
+### Get task by id
+GET http://localhost:5050/tasks/9e8f8e76-235c-4e3a-8826-51fb3e4f8380
+
+### Create task
+POST http://localhost:5050/tasks
+Content-Type: application/json
+
+{
+  "title": "Bangun endpoint pertama",
+  "description": "Belajar POST request di ASP.NET Core Minimal API"
+}
+
+### Update task
+PUT http://localhost:5050/tasks/9e8f8e76-235c-4e3a-8826-51fb3e4f8380
+Content-Type: application/json
+
+{
+  "title": "Pelajari route di ASP.NET Core",
+  "description": "Update data task dan pahami response 200",
+  "isDone": true
+}
+
+### Update status
+PATCH http://localhost:5050/tasks/9e8f8e76-235c-4e3a-8826-51fb3e4f8380/status
+Content-Type: application/json
+
+{
+  "isDone": false
+}
+
+### Delete task
+DELETE http://localhost:5050/tasks/9e8f8e76-235c-4e3a-8826-51fb3e4f8380

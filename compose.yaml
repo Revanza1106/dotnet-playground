@@ -1,0 +1,10 @@
+services:
+  dev:
+    image: mcr.microsoft.com/dotnet/sdk:8.0
+    working_dir: /workspace
+    volumes:
+      - .:/workspace
+    ports:
+      - "5050:5050"
+    stdin_open: true
+    tty: true
