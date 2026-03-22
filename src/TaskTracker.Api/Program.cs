@@ -10,7 +10,7 @@ var app = builder.Build();
 app.MapGet("/", () => Results.Ok(new
 {
     name = "Task Tracker API",
-    message = "Gunakan project ini sebagai latihan portofolio .NET.",
+    message = "Use this project as a .NET portfolio exercise.",
     endpoints = new[]
     {
         "GET /health",
@@ -36,7 +36,7 @@ app.MapGet("/tasks/{id:guid}", (Guid id, TaskRepository repository) =>
     var task = repository.GetById(id);
 
     return task is null
-        ? Results.NotFound(new { message = "Task tidak ditemukan." })
+        ? Results.NotFound(new { message = "Task not found." })
         : Results.Ok(task);
 });
 
@@ -44,14 +44,14 @@ app.MapPost("/tasks", (CreateTaskRequest request, TaskRepository repository) =>
 {
     if (string.IsNullOrWhiteSpace(request.Title))
     {
-        return Results.BadRequest(new { message = "Title wajib diisi." });
+        return Results.BadRequest(new { message = "Title is required." });
     }
 
     var priority = NormalizePriority(request.Priority);
 
     if (priority is null)
     {
-        return Results.BadRequest(new { message = "Priority harus Low, Medium, atau High." });
+        return Results.BadRequest(new { message = "Priority must be Low, Medium, or High." });
     }
 
     var task = repository.Add(request.Title, request.Description ?? string.Empty, priority);
@@ -63,14 +63,14 @@ app.MapPut("/tasks/{id:guid}", (Guid id, UpdateTaskRequest request, TaskReposito
 {
     if (string.IsNullOrWhiteSpace(request.Title))
     {
-        return Results.BadRequest(new { message = "Title wajib diisi." });
+        return Results.BadRequest(new { message = "Title is required." });
     }
 
     var priority = NormalizePriority(request.Priority);
 
     if (priority is null)
     {
-        return Results.BadRequest(new { message = "Priority harus Low, Medium, atau High." });
+        return Results.BadRequest(new { message = "Priority must be Low, Medium, or High." });
     }
 
     var updatedTask = repository.Update(
@@ -81,7 +81,7 @@ app.MapPut("/tasks/{id:guid}", (Guid id, UpdateTaskRequest request, TaskReposito
         request.IsDone);
 
     return updatedTask is null
-        ? Results.NotFound(new { message = "Task tidak ditemukan." })
+        ? Results.NotFound(new { message = "Task not found." })
         : Results.Ok(updatedTask);
 });
 
@@ -90,14 +90,14 @@ app.MapPatch("/tasks/{id:guid}/status", (Guid id, UpdateTaskStatusRequest reques
     var updatedTask = repository.UpdateStatus(id, request.IsDone);
 
     return updatedTask is null
-        ? Results.NotFound(new { message = "Task tidak ditemukan." })
+        ? Results.NotFound(new { message = "Task not found." })
         : Results.Ok(updatedTask);
 });
 
 app.MapDelete("/tasks/{id:guid}", (Guid id, TaskRepository repository) =>
     repository.Delete(id)
         ? Results.NoContent()
-        : Results.NotFound(new { message = "Task tidak ditemukan." }));
+        : Results.NotFound(new { message = "Task not found." }));
 
 static string? NormalizePriority(string? priority)
 {

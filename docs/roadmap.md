@@ -1,68 +1,68 @@
-# Roadmap Belajar .NET
+# .NET Learning Roadmap
 
-## Tahap 1: Dasar C#
+## Stage 1: C# Fundamentals
 
-Target:
+Goals:
 
-- Paham `string`, `int`, `bool`, `DateTime`, `Guid`.
-- Paham `if`, `switch`, `for`, `foreach`.
-- Bisa membuat method sederhana.
-- Paham perbedaan `class` dan `record`.
+- Understand `string`, `int`, `bool`, `DateTime`, and `Guid`.
+- Understand `if`, `switch`, `for`, and `foreach`.
+- Write simple methods.
+- Understand the difference between `class` and `record`.
 
-Latihan:
+Exercises:
 
-- Buat list task di console app.
-- Tandai task selesai atau belum.
-- Cetak task yang statusnya belum selesai.
+- Build a task list in a console app.
+- Mark a task as complete or incomplete.
+- Print only the tasks that are still open.
 
-## Tahap 2: Struktur Project .NET
+## Stage 2: .NET Project Structure
 
-Target:
+Goals:
 
-- Paham isi `.csproj`.
-- Paham fungsi `Program.cs`.
-- Paham bagaimana project dijalankan dengan `dotnet run`.
+- Understand what `.csproj` contains.
+- Understand the role of `Program.cs`.
+- Understand how a project runs with `dotnet run`.
 
-Latihan:
+Exercises:
 
-- Buka project `TaskTracker.Api`.
-- Identifikasi endpoint yang tersedia.
-- Ubah response root endpoint agar menampilkan data versi aplikasi.
+- Open the `TaskTracker.Api` project.
+- Identify the available endpoints.
+- Change the root endpoint response to include application version data.
 
-## Tahap 3: Web API Dasar
+## Stage 3: Basic Web API Development
 
-Target:
+Goals:
 
-- Paham HTTP verb.
-- Bisa baca body JSON.
-- Bisa kirim response `200`, `201`, `400`, `404`, `204`.
+- Understand HTTP verbs.
+- Read JSON request bodies.
+- Return `200`, `201`, `400`, `404`, and `204` responses correctly.
 
-Latihan:
+Exercises:
 
-- Tambah endpoint filter task berdasarkan status.
-- Tambah validasi title minimal 3 karakter.
-- Tambah field `priority`.
+- Add a task filter endpoint by status.
+- Add a minimum length validation rule for the title.
+- Add a `priority` field.
 
-## Tahap 4: Refactor dan Portofolio
+## Stage 4: Refactoring and Portfolio Quality
 
-Target:
+Goals:
 
-- Pisahkan logic agar code lebih rapi.
-- Tulis README yang jelas.
-- Gunakan commit message yang konsisten.
+- Separate logic so the code is easier to maintain.
+- Write a clear README.
+- Use consistent commit messages.
 
-Latihan:
+Exercises:
 
-- Pisahkan logic validasi ke service atau helper.
-- Tambah penyimpanan ke file JSON.
-- Tulis dokumentasi API singkat.
+- Move validation logic into a helper or service.
+- Add simple JSON file persistence.
+- Write short API documentation.
 
-## Tahap 5: Lanjutan
+## Stage 5: Next Steps
 
-Setelah tahap dasar ini stabil, lanjutkan ke:
+Once the basic version is stable, continue with:
 
 - Entity Framework Core
-- SQLite atau PostgreSQL
-- xUnit test
-- Authentication JWT
-- Deployment container
+- SQLite or PostgreSQL
+- xUnit tests
+- JWT authentication
+- Container deployment

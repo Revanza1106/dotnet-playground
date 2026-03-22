@@ -15,8 +15,8 @@ POST http://localhost:5050/tasks
 Content-Type: application/json
 
 {
-  "title": "Bangun endpoint pertama",
-  "description": "Belajar POST request di ASP.NET Core Minimal API",
+  "title": "Build the first endpoint",
+  "description": "Practice a POST request in ASP.NET Core Minimal API",
   "priority": "High"
 }
 
@@ -25,8 +25,8 @@ PUT http://localhost:5050/tasks/9e8f8e76-235c-4e3a-8826-51fb3e4f8380
 Content-Type: application/json
 
 {
-  "title": "Pelajari route di ASP.NET Core",
-  "description": "Update data task dan pahami response 200",
+  "title": "Learn routing in ASP.NET Core",
+  "description": "Update a task and understand a 200 response",
   "priority": "Medium",
   "isDone": true
 }

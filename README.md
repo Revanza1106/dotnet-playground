@@ -1,28 +1,28 @@
-# Dotnet Task Tracker Lab
+# .NET Task Tracker Lab
 
-Repo ini dibuat sebagai tempat belajar .NET sekaligus dasar portofolio GitHub. Fokus proyek pertama adalah membuat `Task Tracker API` sederhana dengan ASP.NET Core Minimal API.
+This repository is designed as a .NET learning workspace and a GitHub portfolio starter. The first project is a simple `Task Tracker API` built with ASP.NET Core Minimal API.
 
-## Kenapa proyek ini cocok untuk belajar
+## Why this project works well for learning
 
-- Cukup kecil untuk dipahami pemula, tetapi tetap relevan untuk portofolio.
-- Kamu akan belajar C#, struktur project .NET, HTTP API, validasi input, dan Docker.
-- Proyek ini bisa dikembangkan bertahap tanpa harus dibongkar dari nol.
+- It is small enough to understand quickly but still useful as a portfolio project.
+- It teaches C#, .NET project structure, HTTP APIs, input validation, and Docker.
+- It can grow incrementally without forcing a rewrite from scratch.
 
-## Yang perlu kamu pahami dulu
+## Concepts to understand first
 
-Sebelum masuk lebih jauh, kuasai konsep ini:
+Before you go deeper, make sure you are comfortable with:
 
-1. Dasar C#: variable, type, method, condition, loop, collection.
-2. OOP dasar: class, property, object, `record`.
-3. Error handling dan validasi input.
-4. REST API dasar: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
-5. Struktur project .NET: `Program.cs`, `.csproj`, model, contract, service.
-6. JSON request dan response.
-7. Docker dasar untuk menjalankan environment konsisten.
+1. Core C#: variables, types, methods, conditionals, loops, and collections.
+2. Basic OOP: classes, properties, objects, and `record`.
+3. Error handling and input validation.
+4. REST basics: `GET`, `POST`, `PUT`, `PATCH`, and `DELETE`.
+5. .NET project structure: `Program.cs`, `.csproj`, models, contracts, and services.
+6. JSON requests and responses.
+7. Basic Docker usage for a reproducible development environment.
 
-Roadmap detail ada di [docs/roadmap.md](docs/roadmap.md).
+The detailed learning roadmap lives in [docs/roadmap.md](docs/roadmap.md).
 
-## Struktur folder
+## Folder structure
 
 ```text
 dotnet-task-tracker-lab/
@@ -34,56 +34,56 @@ dotnet-task-tracker-lab/
    `- TaskTracker.Api/
 ```
 
-## Cara jalanin dengan Docker
+## Run with Docker
 
-Masuk ke folder ini:
+Move into the project folder:
 
 ```bash
 cd dotnet-task-tracker-lab
 ```
 
-Pull image SDK:
+Pull the SDK image:
 
 ```bash
 docker compose pull
 ```
 
-Restore project:
+Restore the project:
 
 ```bash
 docker compose run --rm dev dotnet restore src/TaskTracker.Api/TaskTracker.Api.csproj
 ```
 
-Jalankan API:
+Run the API:
 
 ```bash
 docker compose run --rm --service-ports dev \
   dotnet run --project src/TaskTracker.Api/TaskTracker.Api.csproj --urls http://0.0.0.0:5050
 ```
 
-Lalu buka:
+Then open:
 
 - `http://localhost:5050/`
 - `http://localhost:5050/health`
 - `http://localhost:5050/tasks`
 
-Kalau kamu ingin build image aplikasi:
+If you want to build the application image:
 
 ```bash
 docker build -t task-tracker-api .
 docker run --rm -p 8080:8080 task-tracker-api
 ```
 
-## Latihan bertahap
+## Suggested exercise flow
 
-Urutan latihan yang saya sarankan:
+Recommended order:
 
-1. Jalankan API dan pahami isi [src/TaskTracker.Api/Program.cs](src/TaskTracker.Api/Program.cs).
-2. Coba request dari file [examples/task-tracker.http](examples/task-tracker.http).
-3. Kerjakan tantangan di [docs/latihan.md](docs/latihan.md).
-4. Commit tiap tahap ke GitHub agar progresmu terlihat.
+1. Run the API and understand [src/TaskTracker.Api/Program.cs](src/TaskTracker.Api/Program.cs).
+2. Try the requests in [examples/task-tracker.http](examples/task-tracker.http).
+3. Work through the challenges in [docs/exercises.md](docs/exercises.md).
+4. Commit each milestone so your GitHub history shows steady progress.
 
-## Ide commit untuk portofolio
+## Portfolio-friendly commit ideas
 
 - `chore: bootstrap dotnet task tracker lab with docker`
 - `feat: add create and update task endpoints`
@@ -92,19 +92,19 @@ Urutan latihan yang saya sarankan:
 - `test: add repository unit tests`
 - `docs: improve readme and usage examples`
 
-## Target akhir portofolio
+## Good portfolio baseline
 
-Minimal target yang bagus untuk dipamerkan:
+A solid minimum target:
 
-- API CRUD berjalan.
-- README jelas.
-- Docker setup ada.
-- Request examples ada.
-- Ada improvement buatanmu sendiri.
+- Working CRUD API.
+- Clear README.
+- Docker setup.
+- Request examples.
+- At least one improvement beyond the starter scope.
 
-Kalau sudah selesai tahap dasar, proyek ini bisa kamu lanjutkan jadi:
+After the basic version is stable, you can extend it into:
 
-- Task Tracker dengan database SQLite
+- Task Tracker with SQLite
 - Expense Tracker API
 - Habit Tracker API
-- Notes API dengan authentication
+- Notes API with authentication

@@ -9,8 +9,8 @@ public sealed class TaskRepository
         new()
         {
             Id = Guid.Parse("9e8f8e76-235c-4e3a-8826-51fb3e4f8380"),
-            Title = "Pelajari route di ASP.NET Core",
-            Description = "Pahami GET, POST, PUT, PATCH, dan DELETE.",
+            Title = "Learn routing in ASP.NET Core",
+            Description = "Understand GET, POST, PUT, PATCH, and DELETE.",
             Priority = "High",
             IsDone = false,
             CreatedAtUtc = DateTime.UtcNow
@@ -18,8 +18,8 @@ public sealed class TaskRepository
         new()
         {
             Id = Guid.Parse("5bcd9651-1a98-4910-9fca-9ebda7b53b74"),
-            Title = "Rapikan README portofolio",
-            Description = "Jelaskan fitur project dan cara menjalankannya.",
+            Title = "Polish the portfolio README",
+            Description = "Explain the project features and how to run it.",
             Priority = "Medium",
             IsDone = true,
             CreatedAtUtc = DateTime.UtcNow.AddDays(-1)
